@@ -14,28 +14,28 @@ function renderCalendar(date) {
   const year = date.getFullYear();
   const month = date.getMonth();
 
-  // Set header text
+ 
   monthYear.textContent = `${months[month]} ${year}`;
 
-  // Clear previous days
+  
   daysContainer.innerHTML = "";
 
-  // Find first and last day of month
+ 
   const firstDay = new Date(year, month, 1).getDay();
   const lastDate = new Date(year, month + 1, 0).getDate();
 
-  // Add empty boxes for alignment
+  
   for (let i = 0; i < firstDay; i++) {
     const emptyDiv = document.createElement("div");
     daysContainer.appendChild(emptyDiv);
   }
 
-  // Add all days
+  
   for (let day = 1; day <= lastDate; day++) {
     const dayDiv = document.createElement("div");
     dayDiv.textContent = day;
 
-    // Highlight today
+    
     const today = new Date();
     if (
       day === today.getDate() &&
@@ -49,7 +49,7 @@ function renderCalendar(date) {
   }
 }
 
-// Button controls
+
 prevBtn.addEventListener("click", () => {
   currentDate.setMonth(currentDate.getMonth() - 1);
   renderCalendar(currentDate);
@@ -60,5 +60,5 @@ nextBtn.addEventListener("click", () => {
   renderCalendar(currentDate);
 });
 
-// Initial render
+
 renderCalendar(currentDate);
